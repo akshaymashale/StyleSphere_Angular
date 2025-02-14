@@ -1,0 +1,98 @@
+<div class="container mt-4">
+  <div class="card main-card">
+    <div class="card-header bg-white border-bottom-0">
+      <h3 class="mb-0 text-primary">Your Orders</h3>
+    </div>
+    <div class="card-body">
+      <div *ngIf="orders && orders.length > 0; else noOrders">
+        <div class="order-list">
+          <div class="order-card card mb-4 shadow-sm" *ngFor="let order of orders">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="order-header d-flex justify-content-between align-items-center">
+                    <div>
+                      <h5 class="card-title fw-bold mb-0">Order #{{ order.orderNumber }}</h5>
+                      <span class="badge status-badge mt-2" [ngClass]="getStatusClass(order.status)">
+                        {{ order.status }}
+                      </span>
+                    </div>
+                    <button *ngIf="order.status != 'Delivered'" type="button" class="btn btn-outline-danger btn-sm cancel-btn" (click)="cancelOrder(order.orderId)">
+                      <i class="bi bi-x-circle me-1"></i>Cancel Order
+                    </button>
+                  </div>
+                  
+                  <hr class="my-3">
+                  
+                  <div class="order-info">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <div class="info-group">
+                          <p class="mb-2">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            <strong>Order Date:</strong> 
+                            <span class="text-muted">{{ order.orderDate | date }}</span>
+                          </p>
+                          <p class="mb-2">
+                            <i class="bi bi-truck me-2"></i>
+                            <strong>Delivery Date:</strong> 
+                            <span class="text-muted">{{ order.delieveryDate | date }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="info-group">
+                          <p class="mb-2">
+                            <i class="bi bi-currency-rupee me-2"></i>
+                            <strong>Net Amount:</strong> 
+                            <span class="text-muted">₹{{ order.net_Amount | number:'1.2-2' }}</span>
+                          </p>
+                          <p class="mb-2">
+                            <i class="bi bi-box-seam me-2"></i>
+                            <strong>Shipping:</strong> 
+                            <span class="text-muted">₹{{ order.shipping_Amount | number:'1.2-2' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="product-details mt-4" *ngIf="getProductDetails(order.prodId) as product">
+                    <h6 class="fw-bold mb-3">
+                      <i class="bi bi-box me-2"></i>Product Details
+                    </h6>
+                    <div class="product-info bg-light p-3 rounded">
+                      <div class="row g-2">
+                        <div class="col-12">
+                          <p class="mb-2">
+                            <strong>Name: </strong> 
+                            <span class="text-muted">{{ product.prodName }}</span>
+                          </p>
+                          <p class="mb-2">
+                            <strong>Description: </strong> 
+                            <span class="text-muted">{{ product.description }}</span>
+                          </p>
+                          <p class="mb-0">
+                            <strong>Price: </strong> 
+                            <span class="text-muted">₹{{ product.price | number:'1.2-2' }}</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noOrders>
+        <div class="text-center py-5">
+          <i class="bi bi-inbox display-1 text-muted"></i>
+          <p class="text-muted mt-3 mb-0">No orders found.</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

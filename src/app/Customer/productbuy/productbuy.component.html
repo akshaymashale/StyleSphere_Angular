@@ -1,0 +1,103 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- Product Details - Left Column -->
+    <div class="col-md-4">
+      <div class="card shadow hover:shadow-lg transition-shadow duration-300 sticky-top" style="top: 20px;">
+        <img [src]="getImageUrl(product.image)" [alt]="product.prodName" class="card-img-top">    
+        <div class="card-body bg-white p-4">
+          <h5 class="text-xl font-bold mb-3">{{ product.prodName }}</h5>
+          <p class="text-gray-600 mb-4 text-sm">{{ product.description }}</p>
+          <div class="bg-gray-50 rounded-lg p-3 space-y-2">
+            <p class="card-text"><small class="text-muted font-semibold">Price: <span class="text-primary">₹{{ product.price }}</span></small></p>
+            <p class="card-text"><small class="text-muted font-semibold">Quantity: <span class="text-primary">{{ cart?.quantity }}</span></small></p>
+            <p class="card-text"><small class="text-muted font-semibold">Amount: <span class="text-primary">₹{{ payment?.total_Amount}} </span></small></p>
+            <p class="card-text">
+              <small [class.text-success]="product.availaibility === 'Available'"
+                [class.text-danger]="product.availaibility !== 'Available'" class="font-semibold">
+                Availability: {{ product.availaibility }}
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <form (ngSubmit)="orderNow()" class="space-y-6">
+        <!-- Shipping Details Card -->
+        <div class="card shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="card-header bg-white py-4 px-6 border-b">
+            <h3 class="text-2xl font-bold text-gray-800 m-0">Shipping Address</h3>
+          </div>
+          <div class="card-body p-6">
+            <div class="space-y-4">
+              <div class="form-group">
+                <label for="shippingTo" class="form-label font-medium text-gray-700 block mb-2">Shipping To</label>
+                <input type="text" class="form-control shadow-sm focus:ring-2 focus:ring-blue-500 transition-shadow w-full rounded-lg"
+                  id="shippingTo" [(ngModel)]="shippingDetails.shippingTo" name="shippingTo" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contactDetails" class="form-label font-medium text-gray-700 block mb-2">Contact Details</label>
+                <input type="text" class="form-control shadow-sm focus:ring-2 focus:ring-blue-500 transition-shadow w-full rounded-lg"
+                  id="contactDetails" [(ngModel)]="shippingDetails.contactDetails" name="contactDetails" required>
+              </div>
+
+              <div class="form-group">
+                <label for="address" class="form-label font-medium text-gray-700 block mb-2">Address</label>
+                <input type="text" class="form-control shadow-sm focus:ring-2 focus:ring-blue-500 transition-shadow w-full rounded-lg"
+                  id="address" [(ngModel)]="shippingDetails.address" name="address" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Details Card -->
+        <div class="card shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="card-header bg-white py-4 px-6 border-b">
+            <h2 class="text-2xl font-bold text-gray-800 m-0">Payment Details</h2>
+          </div>
+          <div class="card-body p-6">
+            <div class="space-y-6">
+              <div class="form-group">
+                <label for="paymentMethod" class="form-label font-medium text-gray-700 block mb-2">Payment Method</label>
+                <select id="paymentMethod"
+                  class="form-control shadow-sm focus:ring-2 focus:ring-blue-500 transition-shadow w-full rounded-lg "
+                  [(ngModel)]="payment.payment_Method" name="paymentMethod" required>
+                  <option value="UPI">UPI</option>
+                </select>
+              </div>
+
+              <div class="bg-gray-50 rounded-lg p-5 space-y-3">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600"><strong>Total Amount : </strong></span>
+                  <span class="font-semibold">₹ {{ payment.total_Amount }}</span>
+                </div>
+
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600"><strong>Shipping Amount : </strong></span>
+                  <span class="font-semibold">₹ {{ payment.shipping_Amount }}</span>
+                </div>
+
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600"><strong>Discount : </strong></span>
+                  <span class="font-semibold text-green-600">₹{{ payment.discount_Amount }}</span>
+                </div>
+
+                <div class="pt-3 border-t flex justify-between items-center">
+                  <span class="font-bold text-gray-800"><strong>Amount to Pay : </strong></span>
+                  <span class="font-bold text-xl">₹ {{ payment.pay_Amount }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" onclick="window.print()"
+          class="btn btn-primary w-full py-4 text-lg font-semibold hover:opacity-90 transition-opacity rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+          Pay Now
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

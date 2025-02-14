@@ -1,0 +1,87 @@
+<div class="auth-container mt-4">
+    <div class="auth-header text-center mb-4">
+        <h1>Edit Product Details</h1>
+        <p class="text-muted">Update the product information</p>
+    </div>
+
+    <form #productform="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+            <label for="name" class="form-label">Product Name</label>
+            <input 
+                #ProdName="ngModel" 
+                name="ProdName" 
+                class="form-control" 
+                [(ngModel)]="product.prodName" 
+                placeholder="Enter product name"
+                required>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="description" class="form-label">Product Description</label>
+            <input 
+                #Description="ngModel" 
+                name="description" 
+                class="form-control" 
+                [(ngModel)]="product.description" 
+                placeholder="Enter product description"
+                required>
+        </div>
+
+        <!-- Changes needed ==> cant fetch image in edit form -->
+        <div class="form-group mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input 
+                type="file" 
+                name="image" 
+                class="form-control" 
+                (change)="onFileChange($event)">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="availaibility" class="form-label">Availability</label>
+            <select
+                id="availaibility"
+                #availaibility="ngModel" 
+                name="availaibility" 
+                class="form-control" 
+                [(ngModel)]="product.availaibility" 
+                required>
+                <option value="Available">Available</option>
+                <option value="UnAvailable">Currently Unavailable</option>
+            </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="price" class="form-label">Price</label>
+            <div class="input-group">
+                <span class="input-group-text">₹</span>
+                <input 
+                    #Price="ngModel" 
+                    name="price" 
+                    type="number" 
+                    class="form-control" 
+                    [(ngModel)]="product.price" 
+                    placeholder="Enter price"
+                    required>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="quantity" class="form-label">Stock Quantity</label>
+            <input 
+                #quantity="ngModel" 
+                name="quantity" 
+                type="number" 
+                class="form-control" 
+                [(ngModel)]="product.stock_Quantity" 
+                placeholder="Enter stock quantity"
+                required>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">
+                <i class="bi bi-pencil me-2"></i>Update Product
+            </button>
+        </div>
+    </form>
+</div>

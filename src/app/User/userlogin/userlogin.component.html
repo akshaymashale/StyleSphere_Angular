@@ -1,0 +1,57 @@
+<div class="auth-container mt-4">
+    <div class="auth-header text-center">
+      <h1>Welcome Back</h1>
+      <p class="text-muted">Sign in to continue</p>
+    </div>
+    
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email"
+               class="form-control"
+               name="email"
+               id="email"
+               placeholder="Enter your email"
+               required
+               email
+               #email="ngModel"
+               [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+               ngModel/>
+        <div class="invalid-feedback" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors?.['required']">Email is required</div>
+          <div *ngIf="email.errors?.['email']">Please enter a valid email address</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input [type]="passwordFieldType"
+                 class="form-control"
+                 name="password"
+                 id="password"
+                 placeholder="Enter your password"
+                 required
+                 minlength="6"
+                 #password="ngModel"
+                 [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched)}"
+                 ngModel />
+          <div class="input-group-append">
+            <span class="input-group-text" (click)="togglePasswordVisibility()">
+              <i [class]="passwordFieldType === 'password' ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+            </span>
+          </div>
+          <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.errors?.['required']">Password is required</div>
+            <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters long</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Login
+        </button>
+      </div>
+    </form>
+  </div>

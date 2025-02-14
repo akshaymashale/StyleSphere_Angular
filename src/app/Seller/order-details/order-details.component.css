@@ -1,0 +1,116 @@
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-badge {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+
+.status-badge.confirmed {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-badge.packed {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.status-badge.shipped {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.status-badge.out{
+  background-color:rgb(207, 140, 140);
+  color:brown;
+}
+.status-badge.delivered {
+  background-color: #e8eaf6;
+  color: #3f51b5;
+}
+
+.status-badge.cancelled {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.order-info p {
+  margin-bottom: 0.5rem;
+}
+
+.product-details {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.product-info p {
+  margin-bottom: 0.5rem;
+}
+
+.status-update {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-header {
+  border-bottom: 1px solid #eee;
+}
+
+.order-list {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* css for search and sort */
+.search-box {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.search-box:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.search-sort-container {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .search-sort-container {
+    flex-direction: column;
+  }
+  
+  .search-box, .form-select {
+    margin-bottom: 1rem;
+  }
+}

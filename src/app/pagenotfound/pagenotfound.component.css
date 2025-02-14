@@ -1,0 +1,30 @@
+.error-template {
+    padding: 40px 15px;
+    text-align: center;
+  }
+  
+  .error-actions {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .error-actions .btn {
+    margin-right: 10px;
+  }
+  
+  h1 {
+    font-size: 80px;
+    color: #007bff;
+  }
+  
+  h2 {
+    font-size: 40px;
+    color: #343a40;
+  }
+  
+  .error-details {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #6c757d;
+  }
+  

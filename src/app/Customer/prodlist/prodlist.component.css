@@ -1,0 +1,33 @@
+.card {
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .btn-group {
+    width: 100%;
+  }
+
+  .card-text {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .row-cols-md-3 > * {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }

@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <div class="card profile-card">
+      <div class="card-header text-center">
+        <h2>Your Profile</h2>
+      </div>
+      <div class="card-body">
+        <p class="card-text"><strong>User Name:</strong> {{ user.userName }}</p>
+        <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+        <p class="card-text"><strong>Phone Number:</strong> {{ user.phoneNumber }}</p>
+        <p class="card-text"><strong>Status:</strong> {{ user.status }}</p>
+        <p class="card-text"><strong>User Role:</strong> {{ user.userRole }}</p>
+      </div>
+      <div class="card-footer text-center">
+        <button class="btn btn-primary me-2" (click)="navigateToEditUser(user.userId)">
+          <i class="bi bi-pencil me-1"></i> Edit Profile
+        </button>
+        <button class="btn btn-danger rounded-pill" (click)="logout()">
+          <i class="bi bi-box-arrow-right me-1"></i> Logout
+        </button>
+      </div>
+    </div>
+  </div>

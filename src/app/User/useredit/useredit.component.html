@@ -1,0 +1,41 @@
+<div class="container mt-4">
+    <div class="auth-container">
+      <form #userform="ngForm" (ngSubmit)="onSubmit()">
+        <div class="auth-header text-center">
+          <h1>Edit Profile</h1>
+          <p class="text-muted">Update your account information</p>
+        </div>
+        
+        <div class="form-group">
+          <label for="name">User Name</label>
+          <input #UserName="ngModel" name="UserName" class="form-control" [(ngModel)]="user.userName" placeholder="Enter your username">
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input #UserEmail="ngModel" name="UserEmail" class="form-control" [(ngModel)]="user.email" placeholder="Enter your email">
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input #UserPhone="ngModel" name="UserPhone" class="form-control" [(ngModel)]="user.phoneNumber" placeholder="Enter your phone number">
+        </div>
+        
+        <div class="form-group">
+          <label for="status">Status</label>
+          <input #UserStatus="ngModel" name="UserStatus" class="form-control" [(ngModel)]="user.status" readonly>
+        </div>
+        
+        <div class="form-group">
+          <label for="role">User Role</label>
+          <input #UserRole="ngModel" name="UserRole" class="form-control" [(ngModel)]="user.userRole" readonly>
+        </div>
+        
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-check-circle me-1"></i> Save Changes
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,51 @@
+.product-details-card {
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .card-header h2 {
+    margin-bottom: 0;
+    color: #333;
+  }
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  .card-text {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .card-text strong {
+    min-width: 150px;
+    display: inline-block;
+    color: #555;
+  }
+
+  .card-footer {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .btn i {
+    font-size: 1.1rem;
+  }
+
+  .text-green{
+    color: green;
+  }
+
+  .text-red{
+    color: red;
+  }

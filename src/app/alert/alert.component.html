@@ -1,0 +1,13 @@
+<div *ngIf="alert" 
+         [@slideIn]
+         class="alert-wrapper">
+      <div class="alert" 
+           [ngClass]="alert.type === 'success' ? 'alert-success' : 'alert-danger'">
+        <div class="alert-content">
+          <i class="bi" 
+             [ngClass]="alert.type === 'success' ? 'bi-check-circle-fill' : 'bi-x-circle-fill'"></i>
+          <span>{{ alert.message }}</span>
+        </div>
+        <button type="button" class="btn-close" (click)="closeAlert()"></button>
+      </div>
+    </div>

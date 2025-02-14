@@ -1,0 +1,22 @@
+export class OrderDetails{
+    OrderDate:string;
+    DelieveryDate:string;
+    Total_Amount:number;
+    Payment_Status:string;
+    Payment_Method:string;
+    ProdId:number;
+    Shipping_Amount:number;
+    Discount_Amount:number;
+    Pay_Amount:number;
+    OrderNumber:string;
+    Status:string;
+    ProdName:string;
+    Description:string;
+    Image:string;
+    ShippingTo:string
+    ContactDetails:string;
+    Address:string;
+    Price:number;
+    OrderId:number;
+    userId:number;
+}
